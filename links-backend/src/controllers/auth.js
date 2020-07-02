@@ -2,7 +2,9 @@ const express = require('express');
 const bcrypt = require('bcrypt')
 
 const {Account} = require('../models');
+
 const {accountSignUp, accountSignIn} = require('../validators/account');
+
 const {getMessage} = require('../helpers/messages');
 
 const{generateJwt, generateRefreshJwt} = require('../helpers/jwt');
@@ -18,9 +20,6 @@ router.post('/sign-in', accountSignIn, async(req, res) => {
     const account = await Account.findOne({where:{email}});
 
     const match = account ? bcrypt.compareSync(password, account.password) : null;
-
-    console.log('Digitado: ',password);
-    console.log('Banco: ',account.password);
 
     if(!match) return res.jsonBadRequest(null, getMessage('account.signin.invalid'));
 
