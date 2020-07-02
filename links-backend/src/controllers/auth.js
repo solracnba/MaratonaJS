@@ -11,7 +11,7 @@ const router = express.Router();
 
 const saltRounds = 10;
 
-
+// SIGN - IN 
 router.post('/sign-in', accountSignIn, async(req, res) => {
 
     const {email, password} = req.body;
@@ -33,7 +33,7 @@ router.post('/sign-in', accountSignIn, async(req, res) => {
 });
 
 
-
+// SIGN - UP
 
 router.post('/sign-up', accountSignUp, async(req, res)=>{
 
