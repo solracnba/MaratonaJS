@@ -15,6 +15,12 @@ const Account = sequelize.define('Account',{
 
     },
 
+    jwtVersion: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+    },
+
 });
 
 Account.associate = (models) => {
