@@ -22,7 +22,6 @@ if(!customMessage){
 
 errorMessages[key] = getMessage(path) || message;
 
-
     });
 
 return errorMessages;
